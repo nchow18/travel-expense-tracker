@@ -1,7 +1,7 @@
 const { Expense } = require('../models');
 
 const expenseController = {
-    // get all pizzas
+    // get all expenses
     getAllExpense(req, res) {
       Expense.find({})
         .populate({
@@ -10,7 +10,7 @@ const expenseController = {
         })
         .select('-__v')
         .sort({ _id: -1 })
-        .then(dbPizzaData => res.json(dbPizzaData))
+        .then(dbExpenseData => res.json(dbExpenseData))
         .catch(err => {
           console.log(err);
           res.status(400).json(err);
@@ -18,8 +18,8 @@ const expenseController = {
     },
   
     // get one pizza by id
-    getPizzaById({ params }, res) {
-      Pizza.findOne({ _id: params.id })
+    getExpenseById({ params }, res) {
+      Expense.findOne({ _id: params.id })
         .populate({
           path: 'comments',
           select: '-__v'

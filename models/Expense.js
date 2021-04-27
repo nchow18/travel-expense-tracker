@@ -8,8 +8,8 @@ const ExpenseSchema = new Schema(
       required: true,
       trim: true
     },
-    createdBy: {
-      type: String,
+    expenseAmount: {
+      type: Number,
       required: true,
       trim: true
     },
@@ -17,20 +17,7 @@ const ExpenseSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal)
-    },
-    size: {
-      type: String,
-      required: true,
-      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
-      default: 'Large'
-    },
-    toppings: [],
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-      }
-    ]
+    }
   },
   {
     toJSON: {
@@ -41,13 +28,13 @@ const ExpenseSchema = new Schema(
   }
 );
 
-// get total count of comments and replies on retrieval
-PizzaSchema.virtual('commentCount').get(function() {
-  return this.comments.reduce((total, comment) => total + comment.replies.length + 1, 0);
+// get total count of expenses on retrieval
+ExpenseSchema.virtual('expenseCount').get(function() {
+  return this.expenseAmount.reduce((total, expenseAmount) => total + expenseAmount.length + 1, 0);
 });
 
-  // create the Pizza model using the PizzaSchema
-const Pizza = model('Pizza', PizzaSchema);
+  // create the Expense model using the PizzaSchema
+const Expense = model('Expense', ExpenseSchema);
 
-// export the Pizza model
-module.exports = Pizza;
+// export the Expense model
+module.exports = Expense;
