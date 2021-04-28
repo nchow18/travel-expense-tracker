@@ -20,6 +20,11 @@ const ExpenseSchema = new Schema(
     }
   },
   {
+    toObject: {
+      virtuals: true
+    }
+  },
+  {
     toJSON: {
       virtuals: true,
       getters: true
@@ -28,12 +33,11 @@ const ExpenseSchema = new Schema(
   }
 );
 
-// get total count of expenses on retrieval
 ExpenseSchema.virtual('expenseCount').get(function() {
-  return this.expenseAmount.reduce((total, expenseAmount) => total + expenseAmount.length + 1, 0);
+  return this.expenseAmount.length;
 });
 
-  // create the Expense model using the PizzaSchema
+// create the Expense model using the PizzaSchema
 const Expense = model('Expense', ExpenseSchema);
 
 // export the Expense model
