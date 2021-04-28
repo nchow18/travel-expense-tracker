@@ -3,7 +3,7 @@
 # Travel-Transactions
 
 * [Link to GitHub](https://github.com/nchow18)
-* [Email]:(mailto:emailme@nathanchow.ca)
+* [Email](mailto:emailme@nathanchow.ca)
 * [Link to HEROKU](https://travel-expense-2021.herokuapp.com)
 
 ## Summary
