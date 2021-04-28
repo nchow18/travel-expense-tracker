@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Travel | Expense Tracker</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Spicy+Rice&display=swap&family=Karla:400,700|Rubik:400,400i,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="manifest" href="./dist/manifest.json">
+  <script src="./dist/app.bundle.js" defer ></script>
+</head>
+
+<body class="page">
+  <header>
+
+  </header>
+
+  <main>
+    <div class="center">
+      <div>
+        <h1>Your Total is:</h1>
+        <div id="price-container">
+          <h1 id="transaction-total"></h1>          
+        </div>
+
+      </div>
+      <form>
+        <label for="expense-name"></label>
+        <input type="text" name="expense-name" id="expense-name" placeholder="Transaction Name">
+        <label for="expense-amount"></label>
+        <input type="text" name="expense-amount" id="expense-amount" placeholder="Transaction Amount">
+        <input type="submit" id="add-fund" value="(+) Funds">
+        <input type="submit" id="subtract-fund" value="(--) Funds">
+      </form>
+
+      <div class="expense-container">
+        <div class="row-title-container">
+          <div class="expense-title-left bold">Transaction</div>
+          <div class="expense-title-right bold">Amount</div>
+        </div>
+
+        <div id="expense-list">
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/idb.js"></script>
+  <script>
+    (function() {
+      if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./service-worker.js")
+          .then(() => console.log("Service Worker registered successfully."))
+          .catch(error => console.log("Service Worker registration failed:", error));
+      }
+    })();
+    </script>
+</body>
+
+</html>
