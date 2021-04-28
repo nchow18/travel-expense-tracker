@@ -4,24 +4,18 @@
 
 * [Link to GitHub](https://github.com/nchow18)
 * [Email]:(mailto:emailme@nathanchow.ca)
-* [Link to HEROKU](https://thoughts-reactions.herokuapp.com)
+* [Link to HEROKU](https://travel-expense-2021.herokuapp.com)
 
 ## Summary
 
-This is a tutorial on how to use thoughts-reactions APP.  The app was created for users to created thoughts, and also apply reactions to each other.  Each user is able to have a friends list, where each friend can be added and removed.
+This is an app with the use of indexedDB and service workers, to help increase app functionality with or without internet on your mobile device.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Adding Transaction](#adding-transaction)
 - [Offline Use](#offline-use)
-- [Removing Users](#removing-users)
-- [Adding Thoughts](#adding-thoughts)
-- [Adding Reactions](#adding-reactions)
-- [Removing Reaction](#removing-reaction)
-- [Removing Thought](#removing-thought)
-- [Adding Friend](#adding-friend)
-- [Removing Friend](#removing-friend)
+
 
 ## Installation
 
@@ -48,6 +42,9 @@ Visit Insomnia Core to begin `GET, POST' requests with `http://localhost:3001/` 
 
 To add a transaction, enter the transaction name and Transaction Amount, and you can either choose to add or remove funds from the transaction.  This will update your total
 
+![Travel Transaction](https://raw.githubusercontent.com/nchow18/travel-expense-tracker/main/public/assets/images/img.png)
 
 
+## Offline Use
 
+This app allows you to use all its features even if its not connected to internet.  The data will be stored in indexedDB, and once connection establishes again, your stored data will be posted to the database and will be updated.
